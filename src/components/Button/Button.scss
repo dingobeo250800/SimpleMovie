@@ -1,0 +1,21 @@
+.rounded {
+    border-radius: var(--rounded-full) !important;
+}
+.bgLogin {
+    background-color: #4ac6d2;
+}
+.colorWhite {
+    color: var(--color-white);
+}
+.small {
+    padding: 9px 20px;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+.large {
+    width: 100%;
+    padding: 9px 20px;
+    border-radius: 8px;
+    font-size: 1.6rem;
+    font-weight: 600;
+}

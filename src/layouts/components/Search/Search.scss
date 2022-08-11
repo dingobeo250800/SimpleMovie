@@ -1,0 +1,117 @@
+.search {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    border: 1.5px solid var(--color-SmokeGrey);
+    border-radius: var(--rounded-full);
+    .search_icon,
+    .clearSearch_icon,
+    .loading_icon {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        padding: 0 8px;
+        color: var(--color-Icon);
+    }
+
+    & input {
+        width: 344px;
+        height: 100%;
+        border: transparent;
+        outline: none;
+    }
+    input,
+    input::placeholder {
+        font-size: 1.5rem;
+        color: currentColor;
+    }
+    &:focus-within {
+        border-color: rgba(22, 24, 35, 0.2);
+    }
+}
+.loading_icon {
+    animation: loading-search infinite 1s linear;
+}
+@keyframes loading-search {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.search,
+.search_resul {
+    width: 418px;
+}
+.search_tippy {
+    overflow-y: scroll;
+    height: auto;
+    width: 100%;
+    min-width: 100px;
+    padding: 12px 24px;
+    border-radius: 8px;
+    max-height: min(100vh - 96px - 60px, 734px);
+    background: rgb(255, 255, 255);
+    box-shadow: rgb(0 0 0 / 12%) 0px 2px 12px;
+    .results_return {
+        display: flex;
+        align-items: center;
+        > .search_icon > svg {
+            width: 14px;
+            height: 14px;
+            color: #9da5aa;
+        }
+        p {
+            margin: 0 0 0 8px;
+            font-size: 1.4rem;
+            color: #9da5aa;
+        }
+    }
+}
+
+// SearchTippyLists
+.search__results-list {
+    .header-search {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 0 6px 0;
+        padding: 20px 0 12px 0;
+        border-bottom: 1px solid var(--color-SmokeGrey);
+        .header__search-title {
+            font-style: 1.4rem;
+            font-weight: 500;
+            color: #333;
+        }
+        .header__search-extend {
+            font-size: 1.4rem;
+            cursor: pointer;
+            line-height: 16px;
+            margin: 0;
+            color: var(--color-Icon);
+        }
+    }
+}
+// SearchTippyItem
+.search__results-item {
+    padding: 6px 0;
+    display: flex;
+    align-items: center;
+    .search__results-image {
+        width: 32px;
+        height: 32px;
+        img {
+            border-radius: var(--rounded-full);
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+    }
+    .search__results-name {
+        font-size: 1.4rem;
+        margin-left: 12px;
+    }
+}
