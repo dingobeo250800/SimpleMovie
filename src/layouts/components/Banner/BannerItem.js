@@ -1,10 +1,16 @@
 import React from 'react';
 import Button from '~/components/Button';
 import config from '~/config';
+import useTv from '~/hooks/useTv';
 import './Banner.scss';
 
 function BannerItem({ item }) {
-    const { id, original_title, overview, poster_path } = item;
+    const isTV = useTv();
+    let { id, original_title, overview, poster_path } = item;
+    if (original_title) {
+        original_title = original_title.split(' ').join('-').toLowerCase();
+    }
+    let to = `/${isTV ? 'tv' : 'movie'}/${original_title}/${id}`;
     var countOverView = 300;
     return (
         <div
@@ -19,8 +25,8 @@ function BannerItem({ item }) {
                 <p className="overview">
                     {overview.slice(0, countOverView) + (overview.length > countOverView ? '  ...' : '')}
                 </p>
-                <Button to={config.routes.home} className="watch_now">
-                    Watch Now {id}
+                <Button to={to} className="watch_now">
+                    Watch Now
                 </Button>
             </div>
         </div>

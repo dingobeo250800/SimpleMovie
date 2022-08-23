@@ -8,14 +8,15 @@ import { Pagination } from 'swiper';
 import 'swiper/css';
 import BannerItem from './BannerItem';
 import './Banner.scss';
+import useTv from '~/hooks/useTv';
 
 function Banner(props) {
+    const isTV = useTv();
     const [dataBanner, setDataBanner] = useState([]);
     const getDataBanner = async () => {
         const dataResult = await axios.get(
-            `https://api.themoviedb.org/3/movie/upcoming?api_key=c7b8625de37a7c586d5ae3d65e18b3f1`,
+            `https://api.themoviedb.org/3/${isTV ? 'tv' : 'movie'}/top_rated?api_key=c7b8625de37a7c586d5ae3d65e18b3f1`,
         );
-        // console.log(dataResult.data.results);
         let dataBanner = dataResult.data.results;
         dataBanner.sort(() => Math.random() - 0.5);
         let randumSlices = dataBanner.slice(0, 4);

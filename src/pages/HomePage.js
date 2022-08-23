@@ -4,7 +4,7 @@ import Banner from '~/layouts/components/Banner';
 
 function HomePage(props) {
     return (
-        <div style={{ height: '100vh' }}>
+        <div >
             <Banner />
             <>
                 <section className="section__list-movie">

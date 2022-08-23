@@ -14,7 +14,7 @@ function Sidebar(props) {
         },
         {
             id: 2,
-            link: config.routes.login,
+            link: config.routes.tv,
             icon: <TVIcon />,
             title: 'Tv',
         },

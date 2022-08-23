@@ -21,6 +21,7 @@ function Search(props) {
         if (!debounceSearchValues.trim()) {
             setShowResultMovie([]);
             setShowResultTv([]);
+            setIsLoading(false);
             return;
         }
         setIsLoading(true);
